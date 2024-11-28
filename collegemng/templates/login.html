@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% block content %}
+  <div class="container p-0">
+    <a href="{% url 'Home-page' %}" class="btn btn-primary btn-sm mt-3" style="width:18%; position: relative; left:80%;">🏠</a>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 col-md-6 p-0" style="height:75vh;">
+        <img src="{% static 'assest/home.jpg' %}" class="img-fluid" alt="home-page" style="height: 100%; width: 100%; object-fit: cover;">
+      </div>
+      <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center p-0">
+        <div class="text-center" style="max-width: 80%;">
+          <h1 class="lead"><b>Access your account to continue</b></h1>
+        </div>
+        <div class="justify-content-center align-items-center p-0">
+          <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn btn-success" value="Login">
+            <p>Don't have an account? <a href="{% url 'Register-page' %}">Register</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

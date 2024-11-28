@@ -1,0 +1,63 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid" style="border: 1px solid black;">
+    <h4 class="p-2">{{student.firstname}}</h4>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <img src="{{ student.Profile_pic.url }}" alt="{{ student.firstname }}"  class="img-thumbnail p-2 mx-4 border-0" style="width:80%;">
+        </div>
+        <div class="col-12 col-md-6">
+            <table class="table mt-lg-4">
+                <tr>
+                    <th>FirstName</th>
+                    <td>{{student.firstname}}</td>
+                </tr>
+                <tr>
+                    <th>LastName</th>
+                    <td>{{student.lastname}}</td>
+                </tr>
+                <tr>
+                    <th>Register Number</th>
+                    <td>{{student.register_number}}</td>
+                </tr>
+                <tr>
+                    <th>Email-Id</th>
+                    <td>{{student.email}}</td>
+                </tr>
+                <tr>
+                    <th>Date of Birth</th>
+                    <td>{{student.DoB}}</td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td>{{student.Gender}}</td>
+                </tr>
+                <tr>
+                    <th> Blood group</th>
+                    <td>{{student.Blood_group}}🩸</td>
+                </tr>
+                <tr>
+                    <th> Address</th>
+                    <td>{{student.Address}}</td>
+                </tr>
+                <tr>
+                    <th>City</th>
+                    <td>{{student.City}}</td>
+                </tr>
+                <tr>
+                    <th>State</th>
+                    <td>{{student.State}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container mt-5 d-flex justify-content-center align-items-center mb-4">
+    <a href="{% url 'Update-profile' student.id %}" class="btn btn-warning btn-sm mx-4" style="width:18%;">Edit</a>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+ <div class="container" style="background-color:aliceblue;">
+    <div class="row mt-lg-5 mt-3">
+        <div class="col-12 col-md-8 col-lg-9">
+            <h1 class="display-6 fs-4">Welcome <b>{{request.user.firstname}}</b></h1>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3">
+            <a href="{% url 'Student-Details' %}" class="btn btn-primary btn-sm ">Add Student</a>
+            <a href="{% url 'Logout' %}" class="btn btn-danger btn-sm">Logout</a>
+        </div>
+    </div>
+ </div>
+ <div class="container mt-3" style="background-color:aliceblue;">
+    <h3 class="text-start font-monospace">Student details</h3>
+ </div>
+ <div class="container mt-3">
+    <table class="table table-striped">
+        <thead>
+            <center><tr></center>
+                <th class="text-center">ID</th>
+                <th class="text-center">First Name</th>
+                <th class="text-center">Register Number</th>
+                <th class="text-center">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td class="text-center">{{ forloop.counter }}</td>
+                <td class="text-center">{{ student.firstname }}</td>
+                <td class="text-center">{{ student.register_number }}</td>
+                <td class="text-center">
+                    <a href="{% url 'ViewStudent' student.id %}" class="btn btn-info btn-sm">View</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+ </div>
+{% endblock %}

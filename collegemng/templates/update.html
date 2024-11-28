@@ -1,0 +1,59 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+    <div class="container" style="border: 1px solid black;">
+        <h5 class="text-center mb-4">Update</h5>
+        <form method="POST" class="d-flex flex-column justify-content-center align-items-center">
+            {% csrf_token %}
+
+            <div class="form-group w-75 mb-3">
+                <label for="{{form.Profile_pic.id}}">Profile Picture</label>
+                {{form.Profile_pic}}
+            </div>
+            <div class="form-group w-75 mb-3">
+                <label for="{form.firstname.id}">Firstname</label>
+                {{form.firstname}}
+            </div>
+            <div class="form-group w-75 mb-3">
+                <label for="{form.lastname.id}">Lastname</label>
+                {{form.lastname}}
+            </div>
+            <div class="form-group w-75 mb-3">
+                <label for="{form.register_number.id}">Register Number</label>
+                {{form.register_number}}
+            </div>
+            <div class="form-group w-75 mb-3">
+                <label for="{form.email.id}">E-mail</label>
+                {{form.email}}
+            </div>
+            <div class="form-group w-75 mb-3">
+                <label for="{form.DoB.id}">Date of Birth</label>
+                {{form.DoB}}
+            </div>
+            <div class="form-group w-75 mb-3">
+                <label for="{form.Gender.id}">Gender</label>
+                {{form.Gender}}
+            </div>
+            <div class="form-group w-75 mb-3">
+                <label for="{form.Blood_group.id}">Blood Group</label>
+                {{form.Blood_group}}
+            </div>
+            <div class="form-group w-75 mb-3">
+                <label for="{form.Address.id}">Address</label>
+                {{form.Address}}
+            </div>
+            <div class="form-group w-75 mb-3">
+                <label for="{form.City.id}">City</label>
+                {{form.City}}
+            </div>
+            <div class="form-group w-75 mb-3">
+                <label for="{form.State.id}">State</label>
+                {{form.State}}
+            </div>
+            <div class="button-group  w-75 ">
+                <button type="submit" class="btn btn-success mt-3">Save Changes</button>
+                <a href="{% url 'Teacher-Dashboard' %}" class="btn btn-danger mt-3">Discard</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
